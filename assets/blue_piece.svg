@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="38.20966mm"
+   height="38.20966mm"
+   viewBox="0 0 38.20966 38.20966"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="blue_piece.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.3664983"
+     inkscape:cx="-298.33234"
+     inkscape:cy="210.00659"
+     inkscape:window-width="5760"
+     inkscape:window-height="3146"
+     inkscape:window-x="5749"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs2">
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask6028">
+      <g
+         id="g6034"
+         transform="translate(28.102592,14.988047)">
+        <rect
+           style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.264583"
+           id="rect6030"
+           width="42.696213"
+           height="42.696213"
+           x="19.178783"
+           y="17.551794" />
+        <circle
+           style="fill:#000000;stroke-width:0.242952"
+           id="circle6032"
+           cx="40.52689"
+           cy="38.899902"
+           r="19.10483" />
+      </g>
+    </mask>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-91.331732,-2.9679832)">
+    <g
+       id="g10351">
+      <circle
+         style="fill:#000080;fill-opacity:1;stroke-width:0.242952"
+         id="circle10233"
+         cx="110.43656"
+         cy="22.072813"
+         r="19.10483" />
+      <ellipse
+         style="fill:#0000ff;fill-opacity:1;stroke-width:0.201956"
+         id="ellipse10235"
+         cx="110.43656"
+         cy="22.072813"
+         rx="15.812938"
+         ry="15.949451" />
+    </g>
+  </g>
+</svg>

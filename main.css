@@ -1,0 +1,35 @@
+body {
+}
+
+.canvas {
+  display: flex;
+  justify-content: center;
+  font-size: 0%;
+}
+
+.column {
+}
+
+.board-position {
+  /* margin-bottom: -0.3vh; */
+}
+
+.board-piece {
+  max-width: 12vw;
+  max-height: 15vh;
+}
+
+/* obsolete */
+/* .playing-piece {
+  position: absolute;
+  transform: translate(-105%, 6%);
+  max-width: 11.5vw;
+  max-height: 13.5vh;
+} */
+
+.playing-piece {
+  position: absolute;
+  max-width: 12vw;
+  max-height: 15vh;
+  transform: translate(-100%);
+}
