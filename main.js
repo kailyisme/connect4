@@ -11,7 +11,6 @@ const boardMatrix = [];
 
 const possibleMoves = ["blue", "yellow"];
 let turn = possibleMoves[Math.round(Math.random())];
-// turn = possibleMoves[turn];
 
 // Board building
 canvas.classList.add("canvas");
@@ -55,9 +54,11 @@ function onColumnClickTakeTurn(event, columnIndex) {
   logic.takeTurn(boardMatrix, columnIndex, turn);
 }
 
-canvas.querySelectorAll(".column").forEach((column, index) => {
+canvas.querySelectorAll(".column").forEach((column, columnIndex) => {
   column.addEventListener("click", (e) => {
-    logic.takeTurn(boardMatrix, index, turn);
+    console.log(`Taking turn on column number: ${columnIndex}`);
+    console.log(boardMatrix[columnIndex][5]);
+    logic.takeTurn(boardMatrix, columnIndex, turn);
     turn = logic.swapTurns(possibleMoves, turn);
   });
 });

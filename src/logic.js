@@ -2,7 +2,6 @@ const bluePiece = "../assets/blue_piece_alt.svg";
 const yellowPiece = "../assets/yellow_piece_alt.svg";
 
 function takeTurn(boardMatrix, columnIndex, turn) {
-  console.log(`Taking turn on column number: ${columnIndex}`);
   for (const rowIndex of Array.from({ length: 6 }).map(
     (_, index) => 5 - index
   )) {
