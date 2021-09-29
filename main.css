@@ -1,4 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 body {
+}
+
+.title {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.title h1 {
+  font-size: 4vw;
+  margin: 1vw 0 0;
+  color: #d40000;
+}
+
+.title p {
+  font-size: 2vw;
+  margin: 0 0 1vw;
 }
 
 .canvas {
@@ -16,20 +34,12 @@ body {
 
 .board-piece {
   max-width: 12vw;
-  max-height: 15vh;
+  max-height: 12vh;
 }
-
-/* obsolete */
-/* .playing-piece {
-  position: absolute;
-  transform: translate(-105%, 6%);
-  max-width: 11.5vw;
-  max-height: 13.5vh;
-} */
 
 .playing-piece {
   position: absolute;
   max-width: 12vw;
-  max-height: 15vh;
+  max-height: 12vh;
   transform: translate(-100%);
 }

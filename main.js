@@ -1,7 +1,12 @@
 import * as logic from "./src/logic.js";
 
 const topLevel = document.querySelector("body");
+const title = document.createElement("div");
+title.classList.add("title");
+topLevel.appendChild(title);
 const canvas = document.createElement("div");
+canvas.classList.add("canvas");
+topLevel.appendChild(canvas);
 
 const boardPieceImg = "./assets/board_piece.svg";
 const bluePiece = "./assets/blue_piece_alt.svg";
@@ -12,9 +17,21 @@ const boardMatrix = [];
 const possibleMoves = ["blue", "yellow"];
 let turn = possibleMoves[Math.round(Math.random())];
 
+// Title Assemble
+const titleHeading = document.createElement("h1");
+titleHeading.innerText = "Connect 4";
+title.appendChild(titleHeading);
+const notification = document.createElement("p");
+title.appendChild(notification);
+function updateTurnNotification(msg) {
+  console.log(msg);
+  if (msg) {
+    notification.innerText = msg;
+  } else notification.innerText = `It is ${turn}'s turn`;
+}
+updateTurnNotification();
+
 // Board building
-canvas.classList.add("canvas");
-topLevel.appendChild(canvas);
 for (const col in Array.from({ length: 7 })) {
   const columnDiv = document.createElement("div");
   const columnArray = [];
@@ -33,34 +50,18 @@ for (const col in Array.from({ length: 7 })) {
   canvas.appendChild(columnDiv);
 }
 
-// Board Spacing testing
-// for (const col in boardMatrix) {
-//   for (const row in boardMatrix[col]) {
-//     const newPlay = document.createElement("img");
-//     newPlay.src = yellowPiece;
-//     newPlay.classList.add("playing-piece");
-//     boardMatrix[col][row].appendChild(newPlay);
-//   }
-// }
-
 // Attach click event listener to each column
-function addClickEventListenerToColumnIndex(columnIndex, callBackFunc) {
+function onColumnClickTakeTurn(columnIndex) {
   return function (event) {
-    callBackFunc(event, columnIndex);
+    console.log(`Taking turn on column number: ${columnIndex}`);
+    const error = logic.takeTurn(boardMatrix, columnIndex, turn);
+    if (error === "success") {
+      turn = logic.swapTurns(possibleMoves, turn);
+      updateTurnNotification();
+    } else updateTurnNotification(error);
   };
 }
 
-function onColumnClickTakeTurn(event, columnIndex) {
-  logic.takeTurn(boardMatrix, columnIndex, turn);
-}
-
 canvas.querySelectorAll(".column").forEach((column, columnIndex) => {
-  column.addEventListener("click", (e) => {
-    console.log(`Taking turn on column number: ${columnIndex}`);
-    console.log(boardMatrix[columnIndex][5]);
-    logic.takeTurn(boardMatrix, columnIndex, turn);
-    turn = logic.swapTurns(possibleMoves, turn);
-  });
+  column.addEventListener("click", onColumnClickTakeTurn(columnIndex));
 });
-
-// logic.takeTurn(boardMatrix, 0, "blue");
