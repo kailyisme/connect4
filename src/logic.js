@@ -64,33 +64,26 @@ function possibleWinningCoords(origPos) {
 function checkIf4ConsecutiveInLine(turn, arrayToCheck, boardMatrix) {
   let consecutiveChips = 0;
   for (const pos of arrayToCheck) {
-    console.log(`pos: ${pos}`);
-    if (boardMatrix[pos[0]][pos[1]].querySelector(".playing-piece")) {
-      if (
-        boardMatrix[pos[0]][pos[1]]
-          .querySelector(".playing-piece")
-          .src.match(new RegExp(turn))
-      )
-        console.log(
-          boardMatrix[pos[0]][pos[1]]
-            .querySelector(".playing-piece")
-            .src.match(new RegExp(turn))[0]
-        );
-    }
+    if (
+      boardMatrix[pos[0]][pos[1]].querySelector(".playing-piece") &&
+      boardMatrix[pos[0]][pos[1]]
+        .querySelector(".playing-piece")
+        .src.match(new RegExp(turn))
+    ) {
+      consecutiveChips++;
+    } else consecutiveChips = 0;
+    if (consecutiveChips === 4) return true;
   }
+  return false;
 }
 
 function checkWinner(origPos, turn, boardMatrix) {
   console.log(`Checking winner from position: ${origPos}`);
   const arraysToCheck = possibleWinningCoords(origPos);
-  // console.log(arraysToCheck);
-  checkIf4ConsecutiveInLine(turn, arraysToCheck[0], boardMatrix);
+  for (const arrayToCheck of arraysToCheck) {
+    if (checkIf4ConsecutiveInLine(turn, arrayToCheck, boardMatrix)) return true;
+  }
   return false;
 }
-// Extract winning arrays from position played
-// extract coordinates for each of the positions
-// extract positions for coordinates
-// TODO check if 4 inline in a given array
-// TODO checkwinner func
 
 export { takeTurn, swapTurns, checkWinner };

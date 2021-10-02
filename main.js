@@ -1,4 +1,5 @@
 import * as logic from "./src/logic.js";
+import * as utils from "./src/utils.js";
 import {
   boardPieceImg,
   amountOfColumns,
@@ -56,9 +57,12 @@ function onColumnClickTakeTurn(columnIndex) {
     console.log(`Taking turn on column number: ${columnIndex}`);
     const turnResult = logic.takeTurn(boardMatrix, columnIndex, turn);
     if (turnResult.msg === "success") {
-      logic.checkWinner(turnResult.result, turn, boardMatrix);
-      turn = logic.swapTurns(possibleMoves, turn);
-      updateTurnNotification();
+      if (logic.checkWinner(turnResult.result, turn, boardMatrix)) {
+        updateTurnNotification(`${utils.title(turn)}'s is the winner`);
+      } else {
+        turn = logic.swapTurns(possibleMoves, turn);
+        updateTurnNotification();
+      }
     } else updateTurnNotification(turnResult.msg);
   };
 }

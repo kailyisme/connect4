@@ -6,4 +6,8 @@ function reverseArray(array) {
   return array.map((_, index, array) => array[array.length - 1 - index]);
 }
 
-export { buildSeqArray, reverseArray };
+function title(string) {
+  return string[0].toUpperCase() + string.slice(1);
+}
+
+export { buildSeqArray, reverseArray, title };
