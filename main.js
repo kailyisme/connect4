@@ -31,6 +31,7 @@ function updateTurnNotification(msg) {
 const boardMatrix = [];
 let turn = possibleMoves[Math.round(Math.random())];
 updateTurnNotification();
+let gameFinished = false;
 
 // Board building
 for (const col in Array.from({ length: amountOfColumns })) {
@@ -54,16 +55,21 @@ for (const col in Array.from({ length: amountOfColumns })) {
 // Attach click event listener to each column
 function onColumnClickTakeTurn(columnIndex) {
   return function (event) {
-    console.log(`Taking turn on column number: ${columnIndex}`);
-    const turnResult = logic.takeTurn(boardMatrix, columnIndex, turn);
-    if (turnResult.msg === "success") {
-      if (logic.checkWinner(turnResult.result, turn, boardMatrix)) {
-        updateTurnNotification(`${utils.title(turn)}'s is the winner`);
-      } else {
-        turn = logic.swapTurns(possibleMoves, turn);
-        updateTurnNotification();
-      }
-    } else updateTurnNotification(turnResult.msg);
+    if (gameFinished) {
+      updateTurnNotification("Game has finished. Please reload page.");
+    } else {
+      console.log(`Taking turn on column number: ${columnIndex}`);
+      const turnResult = logic.takeTurn(boardMatrix, columnIndex, turn);
+      if (turnResult.msg === "success") {
+        if (logic.checkWinner(turnResult.result, turn, boardMatrix)) {
+          updateTurnNotification(`${utils.title(turn)}'s is the winner`);
+          gameFinished = true;
+        } else {
+          turn = logic.swapTurns(possibleMoves, turn);
+          updateTurnNotification();
+        }
+      } else updateTurnNotification(turnResult.msg);
+    }
   };
 }
 

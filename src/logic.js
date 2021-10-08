@@ -32,7 +32,7 @@ function swapTurns(possibleMoves, turn) {
   } else return possibleMoves[0];
 }
 
-function mapRelCoordsToPos(origPos, arrayToMap) {
+function mapRelativeCoordinatesToPosition(origPos, arrayToMap) {
   let toReturn = arrayToMap.map((relativePos) => {
     const columnIndex = +origPos[0] + relativePos[0];
     const rowIndex = +origPos[1] + relativePos[1];
@@ -49,12 +49,12 @@ function mapRelCoordsToPos(origPos, arrayToMap) {
   return toReturn;
 }
 
-function possibleWinningCoords(origPos) {
+function possibleWinningCoordinates(origPos) {
   const toReturn = [];
-  for (const inlineKey in inline4RelativeCoordinates) {
-    const newWinningArray = mapRelCoordsToPos(
+  for (const winningDirectionKey in inline4RelativeCoordinates) {
+    const newWinningArray = mapRelativeCoordinatesToPosition(
       origPos,
-      inline4RelativeCoordinates[inlineKey]
+      inline4RelativeCoordinates[winningDirectionKey]
     );
     if (newWinningArray.length > 3) toReturn.push(newWinningArray);
   }
@@ -79,7 +79,7 @@ function checkIf4ConsecutiveInLine(turn, arrayToCheck, boardMatrix) {
 
 function checkWinner(origPos, turn, boardMatrix) {
   console.log(`Checking winner from position: ${origPos}`);
-  const arraysToCheck = possibleWinningCoords(origPos);
+  const arraysToCheck = possibleWinningCoordinates(origPos);
   for (const arrayToCheck of arraysToCheck) {
     if (checkIf4ConsecutiveInLine(turn, arrayToCheck, boardMatrix)) return true;
   }
