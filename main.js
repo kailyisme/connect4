@@ -15,15 +15,15 @@ const canvas = document.createElement("div");
 canvas.classList.add("canvas");
 topLevel.appendChild(canvas);
 
-// Title Assemble
+// Title Assembly
 const titleHeading = document.createElement("h1");
 titleHeading.innerText = "Connect 4";
 title.appendChild(titleHeading);
 const notification = document.createElement("p");
 title.appendChild(notification);
-function updateTurnNotification(msg) {
-  if (msg) {
-    notification.innerText = msg;
+function updateTurnNotification(message) {
+  if (message) {
+    notification.innerText = message;
   } else notification.innerText = `It is ${turn}'s turn`;
 }
 
@@ -60,7 +60,7 @@ function onColumnClickTakeTurn(columnIndex) {
     } else {
       console.log(`Taking turn on column number: ${columnIndex}`);
       const turnResult = logic.takeTurn(boardMatrix, columnIndex, turn);
-      if (turnResult.msg === "success") {
+      if (turnResult.message === "success") {
         if (logic.checkWinner(turnResult.result, turn, boardMatrix)) {
           updateTurnNotification(`${utils.title(turn)}'s is the winner`);
           gameFinished = true;
@@ -68,7 +68,7 @@ function onColumnClickTakeTurn(columnIndex) {
           turn = logic.swapTurns(possibleMoves, turn);
           updateTurnNotification();
         }
-      } else updateTurnNotification(turnResult.msg);
+      } else updateTurnNotification(turnResult.message);
     }
   };
 }
