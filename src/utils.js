@@ -1,4 +1,4 @@
-function buildSeqArray(length) {
+function buildSequentialArray(length) {
   return Array.from({ length }).map((_, index) => index);
 }
 

@@ -5,12 +5,12 @@ import {
   inline4RelativeCoordinates,
   yellowPiece,
 } from "./constants.js";
-import { buildSeqArray, reverseArray } from "./utils.js";
+import { buildSequentialArray, reverseArray } from "./utils.js";
 
 function takeTurn(boardMatrix, columnIndex, turn) {
   let toReturnMessage = { message: "Cannot place a chip in a full column" };
   for (const rowIndex of reverseArray(
-    buildSeqArray(boardMatrix[columnIndex].length)
+    buildSequentialArray(boardMatrix[columnIndex].length)
   )) {
     if (!boardMatrix[columnIndex][rowIndex].querySelector(".playing-piece")) {
       const newPlay = document.createElement("img");
