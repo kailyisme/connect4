@@ -13,7 +13,7 @@ describe("build Sequential Array function", () => {
     const actual = utils.buildSequentialArray(length);
     expect(actual).toEqual(expected);
   });
-  describe("unhappy path", () => {
+  describe("edge cases", () => {
     it("returns an empty array for length 0", () => {
       const length = 0;
       const expected = [];
@@ -36,7 +36,7 @@ describe("reverse Array function", () => {
     const actual = utils.reverseArray(array);
     expect(actual).toEqual(expected);
   });
-  describe("unhappy path", () => {
+  describe("edge cases", () => {
     it("returns an empty array for length 0", () => {
       const array = [];
       const expected = [];
