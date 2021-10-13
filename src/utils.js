@@ -10,4 +10,4 @@ function title(string) {
   return string[0].toUpperCase() + string.slice(1);
 }
 
-export { buildSeqArray, reverseArray, title };
+export { buildSequentialArray, reverseArray, title };
