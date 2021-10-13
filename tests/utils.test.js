@@ -45,3 +45,36 @@ describe("reverse Array function", () => {
     });
   });
 });
+
+describe("title / capitalise first letter function", () => {
+  it("capitalises only the first letter of a string", () => {
+    const string1 = "test";
+    const string2 = "another string";
+    const string3 = "anotherstring";
+    const expected1 = "Test";
+    const expected2 = "Another string";
+    const expected3 = "Anotherstring";
+    const actual1 = utils.title(string1);
+    const actual2 = utils.title(string2);
+    const actual3 = utils.title(string3);
+    expect(actual1).toBe(expected1);
+    expect(actual2).toBe(expected2);
+    expect(actual3).toBe(expected3);
+  });
+  describe("edge cases", () => {
+    it("does not change any string with the first letter already capitalised", () => {
+      const string1 = "Something else";
+      const string2 = "Something Else";
+      const string3 = "Somethingelse";
+      const expected1 = "Something else";
+      const expected2 = "Something Else";
+      const expected3 = "Somethingelse";
+      const actual1 = utils.title(string1);
+      const actual2 = utils.title(string2);
+      const actual3 = utils.title(string3);
+      expect(actual1).toBe(expected1);
+      expect(actual2).toBe(expected2);
+      expect(actual3).toBe(expected3);
+    });
+  });
+});
