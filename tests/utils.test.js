@@ -44,6 +44,22 @@ describe("reverse Array function", () => {
       expect(actual).toEqual(expected);
     });
   });
+  describe("side effects",()=>{
+    it("does not mutate original array",()=>{
+      const array1 = [];
+      const array2 = [0, 1, 2, 3, 4];
+      const array3 = [4, 3, 2, 1, 0];
+      const expected1 = [];
+      const expected2 = [0, 1, 2, 3, 4];
+      const expected3 = [4, 3, 2, 1, 0];
+      utils.reverseArray(array1);
+      utils.reverseArray(array2);
+      utils.reverseArray(array3);
+      expect(array1).toEqual(expected1);
+      expect(array2).toEqual(expected2);
+      expect(array3).toEqual(expected3);
+    })
+  })
 });
 
 describe("title / capitalise first letter function", () => {
